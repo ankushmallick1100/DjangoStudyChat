@@ -1,64 +1,50 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
+<main class="profile-page layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    {% include 'base/topics_component.html' %}
+    <!-- Topics End -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css" />
-  <title>StudyBuddy - Find study partners around the world!</title>
-</head>
-
-<body>
-
-  <main class="profile-page layout layout--3">
-    <div class="container">
-      <!-- Topics Start -->
-      {% include 'base/topics_component.html' %}
-      <!-- Topics End -->
-
-      <!-- Room List Start -->
-      <div class="roomList">
-        <div class="profile">
-          <div class="profile__avatar">
-            <div class="avatar avatar--large active">
-              <img src="https://randomuser.me/api/portraits/men/11.jpg" />
-            </div>
-          </div>
-          <div class="profile__info">
-            <h3>{{user.username}}</h3>
-            <p>@{{user.username}}</p>
-            {% if request.user == user %}
-            <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
-            {% endif %}
-          </div>
-          <div class="profile__about">
-            <h3>About</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur
-              facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio
-              accusamus repudiandae quis ab ex exercitationem rem?
-            </p>
+    <!-- Room List Start -->
+    <div class="roomList">
+      <div class="profile">
+        <div class="profile__avatar">
+          <div class="avatar avatar--large active">
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" />
           </div>
         </div>
-
-        <div class="roomList__header">
-          <div>
-            <h2>Study Rooms Hosted by {{user.username}}</a>
-            </h2>
-          </div>
+        <div class="profile__info">
+          <h3>{{user.username}}</h3>
+          <p>@{{user.username}}</p>
+          {% if request.user == user %}
+          <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          {% endif %}
         </div>
-        {% include 'base/activity_component.html' %}
+        <div class="profile__about">
+          <h3>About</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur
+            facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio
+            accusamus repudiandae quis ab ex exercitationem rem?
+          </p>
+        </div>
       </div>
-      <!-- Room List End -->
 
-      <!-- Activities Start -->
+      <div class="roomList__header">
+        <div>
+          <h2>Study Rooms Hosted by {{user.username}}</a>
+          </h2>
+        </div>
+      </div>
       {% include 'base/activity_component.html' %}
-      <!-- Activities End -->
     </div>
-  </main>
-  {% endblock content %}
+    <!-- Room List End -->
+
+    <!-- Activities Start -->
+    {% include 'base/activity_component.html' %}
+    <!-- Activities End -->
+  </div>
+</main>
+{% endblock content %}
