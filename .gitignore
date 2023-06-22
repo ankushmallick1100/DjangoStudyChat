@@ -1,1 +1,7 @@
 env
+base/template/base/delete_old.html
+base/template/base/home_old.html
+base/template/base/login_register_old.html
+base/template/base/profile_old.html
+base/template/base/room_form_old.html
+base/template/base/room_old.html
